@@ -1,0 +1,181 @@
+@import "normalize.styl"
+@import "nib"
+@import "fonts.styl"
+
+alice_blue = #FAFDFE
+solitude = #E0E3E8
+zumthor = #D2D4D5
+grey_chateau = #9FA2A5
+camouflage_green = #758168
+cornflower = #94D1EE
+fiord = #4B5863
+light_slate_grey = #838C99
+
+primary = #03A9F4
+primary_dark = #0288D1
+primary_light = #B3E5FC
+accent = #536DFE
+primary_text = fiord
+secondary_text = grey_chateau
+//primary_text = #212121
+//secondary_text = #757575
+icons = #FFFFFF
+divider = #BDBDBD
+
+body
+  background alice_blue
+  font-size 16px
+  font-family 'Varela Round', sans-serif
+  color primary_text
+figure
+  margin 0
+img
+  vertical-align top
+
+// oocss
+.round
+  border-radius 50%
+  border 1.5px solid #fff
+  overflow hidden
+.card
+  background #fff
+  border-radius 2px
+  box-shadow 0 4px 8px 0 rgba(0,0,0,0.2)
+  margin 1rem
+  padding 1rem
+.bar
+  height 20px
+  border-radius 10px
+  background solitude
+  .state
+    height 20px
+    border-radius 10px
+
+.timeline
+  position relative
+  &:before
+    content ''
+    position absolute
+    border 2px solid #57f
+    height 100%
+    margin 9.5px 0 
+    left 3.75rem
+  
+  .event
+    font-size 0
+    margin-bottom 50px
+    & > *
+      vertical-align top
+      font-size 1rem
+    .date
+      display inline-block
+      margin-top 9px
+      font-weight bold
+      position relative
+      &:before
+        content ''
+        position absolute
+        left 45.5px
+        top -7px
+        background #fff
+        width 26px
+        height 26px
+        border-radius 50%
+        border 3px solid #57f
+      &:after
+        content ''
+        position absolute
+        left 53.5px
+        top 1px
+        background #57f
+        width 16px
+        height 16px
+        border-radius 50%
+
+    .right-content
+      display inline-block
+      margin-left 50px
+      width 250px
+      color primary_text
+      font-weight bold
+      .title
+      .subtitle
+      .range
+        margin 0
+        font-size 1rem
+        font-weight normal
+      .title
+        font-weight bold
+      .subtitle
+      .range
+        font-size .9rem
+        color secondary_text
+
+
+.header
+  height 2.5rem
+  position relative
+  background #fff
+  color primary_text
+  box-shadow 0 5px 20px 0px gray
+  .icon-menu
+    position absolute
+    top 50%
+    left 1.25rem
+    margin-top -.5rem
+    text-decoration none
+    color primary_text
+    
+  .title
+    text-transform uppercase
+    line-height 2.5rem
+    text-align center
+    h1
+      margin 0
+      font-size 1.25rem
+  .menu
+    display none
+
+//.main
+
+.banner
+  .image.banner
+    position relative
+    .content
+      position absolute
+      top 25%
+      left 20%
+      right 20%
+      text-align center
+      .image.avatar
+        width 35%
+        margin 0 auto
+        img
+          width 100%
+          height auto
+      h2
+        color #fff
+        font-size 1.25rem
+        font-weight normal
+      
+.overview
+  margin 1em
+
+//.skills
+  //h3
+    //margin-top 0
+.skill
+  //padding 1em 0
+  margin-bottom 2em
+  .title
+    color secondary_text
+    margin-bottom .5em
+    display block
+  &.cplusplus
+    .state
+      width 80%
+      background #7ca
+  &.html5
+    .state
+      width 60%
+      background #ca7
