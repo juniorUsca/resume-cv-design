@@ -22,6 +22,13 @@ secondary_text = grey_chateau
 icons = #FFFFFF
 divider = #BDBDBD
 
+html
+  box-sizing: border-box;
+*
+*:before
+*:after
+  box-sizing: inherit;
+
 body
   background alice_blue
   font-size 16px
@@ -50,9 +57,14 @@ img
   .state
     height 20px
     border-radius 10px
+    //width 80%
 
 .timeline
   position relative
+  box-sizing content-box
+  &:before
+  &:after
+    box-sizing content-box
   &:before
     content ''
     position absolute
@@ -60,15 +72,18 @@ img
     height 100%
     margin 9.5px 0 
     left 3.75rem
+    
   
   .event
-    font-size 0
+    //font-size 0
     margin-bottom 50px
-    & > *
-      vertical-align top
-      font-size 1rem
+    overflow hidden
+    //& > *
+      //vertical-align top
+      //font-size 1rem
     .date
-      display inline-block
+      //display inline-block
+      float left
       margin-top 9px
       font-weight bold
       position relative
@@ -93,9 +108,10 @@ img
         border-radius 50%
 
     .right-content
-      display inline-block
-      margin-left 50px
-      width 250px
+      //display inline-block
+      //margin-left 50px
+      float right
+      width 150px
       color primary_text
       font-weight bold
       .title
@@ -110,6 +126,25 @@ img
       .range
         font-size .9rem
         color secondary_text
+
+.dl-horizontal
+  font-size 0
+  & > *
+    font-size 1rem
+    display inline-block
+  dt
+    font-weight bold
+    width 25%
+    text-align right
+    margin-right 5%
+    box-sizing border-box
+  dd
+    box-sizing border-box
+    font-weight normal
+    margin 0
+    width 70%
+
+
 
 
 .header
@@ -159,12 +194,45 @@ img
         font-weight normal
       
 .overview
-  margin 1em
+  margin 2em 1em
 
 //.skills
   //h3
     //margin-top 0
+
+
 .skill
+  margin-bottom 2em
+  overflow hidden
+  .left-content
+    float left
+    width 20%
+    padding .5rem
+  .right-content
+    float left
+    width 80%
+    padding .5rem
+  
+  .icon
+    font-size 48px
+  .title
+    color secondary_text
+    margin-bottom .5em
+    display block
+  
+  &.cplusplus
+    .icon
+      color #7ca
+    .state
+      width 80%
+      background #7ca
+  &.html5
+    .state
+      width 60%
+      background #ca7
+
+
+/*.skill
   //padding 1em 0
   margin-bottom 2em
   .title
@@ -179,3 +247,15 @@ img
     .state
       width 60%
       background #ca7
+*/
+
+
+// Media Queries
+@media screen and (min-width: 480px)
+  .dl-horizontal
+    dt
+      width 20%
+    dd
+      width 75%
+
+//@media screen and (min-width: 1000px)
