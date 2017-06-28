@@ -48,7 +48,8 @@ img
   background #fff
   border-radius 2px
   box-shadow 0 4px 8px 0 rgba(0,0,0,0.2)
-  margin 1rem
+  //margin 1rem
+  margin 2%
   padding 1rem
 .bar
   height 20px
@@ -71,47 +72,54 @@ img
     border 2px solid #57f
     height 100%
     margin 9.5px 0 
-    left 3.75rem
+    margin-left -23px
+    //left 3.75rem
+    left 40%
     
   
   .event
-    //font-size 0
     margin-bottom 50px
     overflow hidden
-    //& > *
-      //vertical-align top
-      //font-size 1rem
-    .date
-      //display inline-block
+    .left-content
       float left
-      margin-top 9px
-      font-weight bold
-      position relative
-      &:before
-        content ''
-        position absolute
-        left 45.5px
-        top -7px
-        background #fff
-        width 26px
-        height 26px
-        border-radius 50%
-        border 3px solid #57f
-      &:after
-        content ''
-        position absolute
-        left 53.5px
-        top 1px
-        background #57f
-        width 16px
-        height 16px
-        border-radius 50%
-
+      width 40%
+      .date
+        margin-right 5.5px
+        padding-right 37.5px // 32 + 5.5
+        //float left
+        margin-top 9px
+        font-weight bold
+        text-align right
+        position relative
+        z-index 1
+        &:before
+          content ''
+          position absolute
+          //left 45.5px
+          right 0
+          top -7px
+          background #fff
+          width 26px
+          height 26px
+          border-radius 50%
+          border 3px solid #57f
+        &:after
+          content ''
+          position absolute
+          //left 53.5px
+          right 8px
+          top 1px
+          background #57f
+          width 16px
+          height 16px
+          border-radius 50%
     .right-content
-      //display inline-block
       //margin-left 50px
+      //margin-left 83px
+      //margin-left 43px
       float right
-      width 150px
+      width 60%
+      min-width 150px
       color primary_text
       font-weight bold
       .title
@@ -178,7 +186,7 @@ img
     position relative
     .content
       position absolute
-      top 25%
+      top 35%
       left 20%
       right 20%
       text-align center
@@ -222,10 +230,58 @@ img
   
   &.cplusplus
     .icon
-      color #7ca
+      color #2196f3
+    .state
+      width 95%
+      background #2196f3
+  &.nodejs
+    .icon
+      color #009688
+    .state
+      width 75%
+      background #009688
+  &.python
+    .icon
+      color #ffeb3b
+    .state
+      width 70%
+      background #ffeb3b
+  &.devos
+    .icon
+      color #f44336
     .state
       width 80%
-      background #7ca
+      background #f44336
+  &.android
+    .icon
+      color #4caf50
+    .state
+      width 80%
+      background #4caf50
+  &.angularjs
+    .icon
+      color #e91e63
+    .state
+      width 60%
+      background #e91e63
+  &.reactjs
+    .icon
+      color #3f51b5
+    .state
+      width 85%
+      background #3f51b5
+  &.docker
+    .icon
+      color #03a9f4
+    .state
+      width 90%
+      background #03a9f4
+  &.git
+    .icon
+      color #9e9e9e
+    .state
+      width 95%
+      background #9e9e9e
   &.html5
     .state
       width 60%
@@ -249,13 +305,38 @@ img
       background #ca7
 */
 
-
 // Media Queries
+// SMALL
 @media screen and (min-width: 480px)
   .dl-horizontal
     dt
       width 20%
     dd
       width 75%
-
+  .banner
+  .image.banner
+    h2
+      margin 3rem 0
+// MEDIUM
+@media screen and (min-width: 768px)
+  .skills
+    overflow hidden
+    .skill
+      width 50%
+      padding 1.25rem
+      float left
+  .wrapper
+    margin 1%
+    overflow hidden
+    .card
+      margin 1%
+    .experience
+    .certificates
+      float left
+      width 48%
+    
+  //.wrapper
+    //.medium
+  
+// LARGE
 //@media screen and (min-width: 1000px)
