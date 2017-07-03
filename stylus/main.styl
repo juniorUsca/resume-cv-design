@@ -39,6 +39,14 @@ figure
 img
   vertical-align top
 
+a
+  text-decoration none
+ul
+  margin 0
+  padding 0
+li
+  list-style none
+
 // oocss
 .round
   border-radius 50%
@@ -161,6 +169,17 @@ img
   background #fff
   color primary_text
   box-shadow 0 5px 20px 0px gray
+
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index 2
+  background-color #fffe
+  //opacity 0.3
+  /*& > *
+    opacity 1*/
+
   .icon-menu
     position absolute
     top 50%
@@ -178,6 +197,32 @@ img
       font-size 1.25rem
   .menu
     display none
+    overflow hidden
+    max-width 62.5rem
+    margin 0 auto
+    .logo
+      line-height 3.25rem
+      margin-left 1rem
+      color primary_dark
+    .list
+      float right
+    .item
+      float left
+      a
+        color primary_text
+        padding .75rem 1rem
+        display block
+        border-bottom .5rem solid transparent
+        //width 150px
+        &:hover
+          border-bottom .5rem solid primary
+    .active
+      a
+        border-bottom .5rem solid primary_dark
+        color primary_dark
+  .submenu
+    display none
+
 
 .main
   max-width 62.5rem
@@ -186,9 +231,11 @@ img
 .banner
   .image.banner
     position relative
+    img
+      filter brightness(30%)
     .content
       position absolute
-      top 35%
+      top 20%
       left 20%
       right 20%
       text-align center
@@ -198,6 +245,7 @@ img
         img
           width 100%
           height auto
+          filter brightness(100%)
       h2
         color #fff
         font-size 1.25rem
@@ -429,13 +477,19 @@ img
       float left
     .certificates
       float right
-      
-    
-  //.wrapper
-    //.medium
-  
+
+  .header
+    height auto
+    //border none
+    .icon-menu
+    .title
+      display none
+    .menu
+      display block
+
 // LARGE
 @media screen and (min-width: 1024px)
   .skills
     .skill
       width 33.333%
+  
