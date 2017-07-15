@@ -6,7 +6,7 @@
 template <class T>
 struct HeapNode {
     T _data;
-    HeapNode* _lower;
+    HeapNode<T>* _lower;
 };
 
 template <class T>
@@ -15,12 +15,18 @@ class Heap
 private:
     HeapNode<T>* _root;
     HeapNode<T>* _top;
+    bool _error;
 public:
     Heap();
+    ~Heap();
 
     bool isEmpty();
-    //bool push();
-    //bool pop();
+    bool hasError();
+    void push(T);
+    T pop();
+    T top();
+
+    void print();
 };
 
 #endif

@@ -1,0 +1,1 @@
+cd .. && make clean && make && cd src && ./junkyll
