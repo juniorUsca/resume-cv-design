@@ -1,8 +1,7 @@
 #ifndef MICLASE_H
 #define MICLASE_H
 
-#include <iostream>
-using namespace std;
+#include "headers.h"
 
 class miclase
 {

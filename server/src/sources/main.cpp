@@ -1,24 +1,9 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-
-#include "miclase.h"
-
-using namespace std;
-
-
-
-void compile() {}
+#include "headers.h"
+#include "config.h"
 
 int main() {
-    miclase* c = new miclase();
-
-    ifstream file("test.txt");
-    string buffer;
-    while (!file.fail()) {
-        //file >> buffer;
-        getline(file,buffer);
-        cout <<"--"<<buffer << endl;
-    }
+    Config* config = new Config();
+    cout << config->getConfig("language")<<endl;
+    
     return 0;
 }

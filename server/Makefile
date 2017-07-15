@@ -36,7 +36,9 @@ BUILDLIST := $(patsubst $(INCDIR)/%,$(BUILDDIR)/%,$(INCDIRS))
 
 SRCDIRS := $(shell find $(SRCDIR)/**/* -name '*.$(SRCEXT)' -exec dirname {} \; | sort | uniq)
 BUILDLIST += $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SRCDIRS))
-ifeq ($(BUILDLIST),)
+# note the space on echo
+STR_EMPTY := $(shell echo " ")
+ifeq ($(BUILDLIST),$(STR_EMPTY))
   BUILDLIST := $(BUILDDIR)
 endif
 # Shared Compiler Flags
