@@ -1,0 +1,37 @@
+{
+  "name": "resume-cv",
+  "version": "0.0.1",
+  "description": "My resume",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juniorUsca/resume-cv-design.git"
+  },
+  "author": "juniorUsca <junior.usca@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/juniorUsca/resume-cv-design/issues"
+  },
+  "homepage": "https://github.com/juniorUsca/resume-cv-design#readme",
+  "devDependencies": {
+    "backbone": "^1.3.3",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-changed": "^3.1.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-minify-html": "^1.0.6",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "handlebars": "^4.0.10",
+    "jquery": "^3.2.1",
+    "nib": "^1.1.2",
+    "stylus": "^0.54.5"
+  },
+  "dependencies": {
+    "node-static": "^0.7.9"
+  }
+}

@@ -5,7 +5,7 @@ RUN cd /root && touch ".builded.$(date +%F_%R)" && cd / && \
         nodejs nodejs-npm \
     	file \
 	    libpng
-#COPY package.json /app/package.json
+COPY package.json /app/package.json
 WORKDIR /app
 RUN set -x && \
 	apk add --no-cache --virtual .build-deps \
@@ -14,9 +14,9 @@ RUN set -x && \
 		build-base \
 		libpng-dev \
 		nasm && \
-	#npm install && \
-	#apk del .build-deps && \
-    #npm cache clean
+	npm install && \
+	apk del .build-deps && \
+    npm cache clean
 COPY . /app
 EXPOSE 8080
 CMD ["npm", "run", "start"]
