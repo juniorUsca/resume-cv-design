@@ -6,7 +6,7 @@ var Partials = require('./partials'),
 
 module.exports = function(server, development) {
     var context = {
-        "public_dir": "public",
+        "public_dir": "build",
         "layout": "default",
     }
     var config = Config()

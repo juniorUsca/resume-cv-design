@@ -28,7 +28,7 @@ module.exports = function (context){
             try {
                 self.context = Object.assign(self.context, Yaml.safeLoad(yaml_txt))
             } catch (e) {
-                console.log(e);
+                //console.log(e);
                 console.error(`POST: In post ${file_name}, error compiling yaml`)
                 return
             }
@@ -36,39 +36,37 @@ module.exports = function (context){
 
             var template = Handlebars.compile(`{{> ${self.context['layout']} }}`)
             var html = template (self.context)
-            
-            var date = new Date (self.context['date'])
-            var permalink = self.context['permalink']
-            var route=permalink.split('/')
-            permalink = self.context['public_dir'] + '/'
-            console.log(route)
-            route.forEach(function(chunk){
-                chunk = chunk.substring(1,chunk.length)
-                console.log(chunk)
-                if (chunk === "year" && !isNaN( date.getTime() ))
-                    permalink += date.getFullYear().toString() + '/'
-                if (chunk === "month" && !isNaN( date.getTime() )) {
-                    var month = (date.getMonth()+1).toString()
-                    month = (month.length===1)? '0'+month:month
-                    permalink += month + '/'
-                }
-                if (chunk === "day" && !isNaN( date.getTime() )) {
-                    var day = date.getDate().toString()
-                    day = (day.length===1)? '0'+day:day
-                    permalink += day + '/'
-                }
-                if (chunk === "title") {
-                    var title = self.context['title']
-                        .toLowerCase()
-                        .replace(/[^\w ]+/g,'')
-                        .replace(/ +/g,'-')
-                    permalink += title + '/'
-                }
-            })
 
-            console.log("perma",permalink)
+            var permalink = self.context['public_dir'] + '/'
+            if (!self.context['permalink']) {
+                var date = new Date (self.context['date'])
+                var permalink_format = self.context['permalink_format']
+                var route=permalink_format.split('/')
+                route.forEach(function(chunk){
+                    chunk = chunk.substring(1,chunk.length)
+                    if (chunk === "year" && !isNaN( date.getTime() ))
+                        permalink += date.getFullYear().toString() + '/'
+                    if (chunk === "month" && !isNaN( date.getTime() )) {
+                        var month = (date.getMonth()+1).toString()
+                        month = (month.length===1)? '0'+month:month
+                        permalink += month + '/'
+                    }
+                    if (chunk === "day" && !isNaN( date.getTime() )) {
+                        var day = date.getDate().toString()
+                        day = (day.length===1)? '0'+day:day
+                        permalink += day + '/'
+                    }
+                    if (chunk === "title") {
+                        var title = self.context['title']
+                            .toLowerCase()
+                            .replace(/[^\w ]+/g,'')
+                            .replace(/ +/g,'-')
+                        permalink += title + '/'
+                    }
+                })
+            } else
+                permalink += self.context['permalink']
             
-
             mkdirp(permalink, function (err) {
                 if (err){
                     console.error(`POST: In post ${file_name}, can't create folder`)

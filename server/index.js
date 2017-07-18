@@ -2,8 +2,7 @@ var http = require('http'),
     st = require('node-static'),
     opts = {cache: false},
     file = new st.Server('./public', opts),
-    port = process.env.PORT || 8080,
-    web_page = require('./src/main')
+    port = process.env.PORT || 8080
 
 http
     .createServer(function (req, res) {
@@ -12,8 +11,3 @@ http
     .listen(port)
 
 console.log ("App running on http://0.0.0.0:%s", port)
-
-
-// Start project
-
-web_page()

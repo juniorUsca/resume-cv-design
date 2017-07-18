@@ -3,6 +3,7 @@ title: Configurar VirtualBox para ingresar con SSH e IP estatica
 layout: post
 date: '2016-11-08 12:00:00'
 banner_image: no_image
+permalink: /no_image/
 tags:
 - maquina
 - virtual

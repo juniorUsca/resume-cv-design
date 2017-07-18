@@ -5,7 +5,6 @@
     "language": "es",
     "url": "https://juniorUsca.github.io",
     "root": "/",
-    "permalink": ":year/:month/:day/:title/",
-    "permalink_defaults": ":title",
+    "permalink_format": ":year/:month/:day/:title/",
     "pagination_page": "10"
 }
