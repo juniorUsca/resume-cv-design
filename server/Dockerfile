@@ -4,7 +4,8 @@ RUN cd /root && touch ".builded.$(date +%F_%R)" && cd / && \
     apk --update add --no-cache \
         nodejs nodejs-npm \
     	file \
-	    libpng
+	    libpng && \
+	rm -rf /var/cache/apk/*
 COPY package.json /app/package.json
 WORKDIR /app
 RUN set -x && \
@@ -16,6 +17,7 @@ RUN set -x && \
 		nasm && \
 	npm install && \
 	apk del .build-deps && \
+	rm -rf /var/cache/apk/* && \
     npm cache clean
 COPY . /app
 EXPOSE 8080

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Configurar VirtualBox para ingresar con SSH e IP estatica</title>
+</head>
+<body>
+    <p>Configuraremos una IP estatica para una maquina virtual linux y de esta forma poder acceder a ella desde una maquina local. Suponemos que ya se instalo linux.</p>
+<h3 id="configurando-una-ip-estatica-a-una-maquina-virtual-">Configurando una IP estatica a una maquina virtual:</h3>
+<p>La ip que configuraremos sera: 192.168.1.240</p>
+<p>Apagamos la maquina virtual Virtual Box</p>
+<p>Ingresamos a configuracion y red, habilitamos el <strong>adaptador 2</strong> como se ve en la iamgen:</p>
+<p><img src="https://raw.githubusercontent.com/juniorUsca/tutoriales/master/maquina%20virtual/ipstatica-ssh/imgs/vbox_adapter2.png" alt="Image 1"></p>
+<p>Encendemos la maquina virtual</p>
+<h4 id="verificamos-lo-adaptadores-de-red">Verificamos lo adaptadores de red</h4>
+<pre><code>$ ls /sys/class/net
+</code></pre><p>Deberia de aparecer 3 redes, 2 de los adaptadores y la otra de localhost</p>
+<h4 id="editamos-las-interfaces-de-red">Editamos las interfaces de red</h4>
+<pre><code>$ sudo vim /etc/network/interfaces
+</code></pre><p>Dependiendo del nombre del <strong>adaptador 2</strong> que creamos previamente, agregamos lo siguiente, en nuestro caso en nombre es <strong>eth1</strong>:</p>
+<pre><code>auto eth1
+iface eth1 inet static
+  address 192.168.56.10
+  netmask 255.255.255.0
+</code></pre><p>Activamos la red con:</p>
+<pre><code>$ sudo ifup eth1
+</code></pre><h3 id="configurando-ssh-en-una-maquina-virtual-">Configurando SSH en una maquina virtual:</h3>
+<h4 id="instalamos-ssh-en-la-maquina-virtual">Instalamos SSH en la maquina virtual</h4>
+<pre><code>$ sudo apt-get install openssh-server
+</code></pre><h4 id="verificamos-la-coneccion-desde-cualquier-otra-maquina-en-la-misma-red">Verificamos la coneccion desde cualquier otra maquina en la misma red</h4>
+<pre><code>$ ping 192.168.56.10
+</code></pre><h4 id="para-ingresar-por-ssh-a-la-maquina-configurada-usamos-desde-cualquier-otra-maquina-en-la-misma-red">Para ingresar por ssh a la maquina configurada usamos desde cualquier otra maquina en la misma red</h4>
+<pre><code>$ ssh &lt;usernam&gt;@192.168.56.10
+</code></pre><h2 id="errores-comunes">Errores comunes</h2>
+<h3 id="si-no-hace-ping-a-la-maquina-virtual-asegurate-que-este-levantado-en-tu-maquina-host">Si no hace ping a la maquina virtual, asegurate que este levantado en tu maquina HOST</h3>
+<pre><code>$ sudo ifconfig vboxnet0 up
+$ ifconfig
+</code></pre><h3 id="si-no-conecta-a-la-maquina-virtual-y-no-tienes-ip-aplicar-en-tu-host-">Si no conecta a la maquina virtual y no tienes ip, aplicar en tu HOST:</h3>
+<pre><code>$ sudo ifconfig vboxnet0 192.168.56.1
+$ ifconfig
+</code></pre><h3 id="referencias-">Referencias:</h3>
+<ul>
+<li><a href="https://muffinresearch.co.uk/howto-ssh-into-virtualbox-3-linux-guests">https://muffinresearch.co.uk/howto-ssh-into-virtualbox-3-linux-guests</a></li>
+<li><a href="http://askubuntu.com/questions/293816/in-virtualbox-how-do-i-set-up-host-only-virtual-machines-that-can-access-the-in">http://askubuntu.com/questions/293816/in-virtualbox-how-do-i-set-up-host-only-virtual-machines-that-can-access-the-in</a></li>
+<li><a href="http://slopjong.de/2013/05/14/virtualbox-make-your-virtual-machine-accessible-from-your-host-system-but-not-from-the-local-network">http://slopjong.de/2013/05/14/virtualbox-make-your-virtual-machine-accessible-from-your-host-system-but-not-from-the-local-network</a></li>
+</ul>
+
+</body>
+</html>
