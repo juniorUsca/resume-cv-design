@@ -1,0 +1,527 @@
+@import "normalize.styl"
+@import "nib"
+@import "fonts.styl"
+
+alice_blue = #FAFDFE
+solitude = #E0E3E8
+zumthor = #D2D4D5
+grey_chateau = #9FA2A5
+camouflage_green = #758168
+cornflower = #94D1EE
+fiord = #4B5863
+light_slate_grey = #838C99
+
+primary = #03A9F4
+primary_dark = #0288D1
+primary_light = #B3E5FC
+accent = #536DFE
+primary_text = fiord
+secondary_text = grey_chateau
+//primary_text = #212121
+//secondary_text = #757575
+icons = #FFFFFF
+divider = #BDBDBD
+
+html
+  box-sizing: border-box;
+*
+*:before
+*:after
+  box-sizing: inherit;
+
+body
+  background alice_blue
+  font-size 16px
+  font-family 'Varela Round', sans-serif
+  color primary_text
+figure
+  margin 0
+img
+  vertical-align top
+
+a
+  text-decoration none
+ul
+  margin 0
+  padding 0
+li
+  list-style none
+
+// oocss
+.round
+  border-radius 50%
+  border 1.5px solid #fff
+  overflow hidden
+.card
+  background #fff
+  border-radius 2px
+  box-shadow 0 4px 8px 0 rgba(0,0,0,0.2)
+  margin 1rem
+  //margin 2%
+  padding 1rem
+.bar
+  height 20px
+  border-radius 10px
+  background solitude
+  .state
+    height 20px
+    border-radius 10px
+    //width 80%
+
+.timeline
+  position relative
+  box-sizing content-box
+  &:before
+  &:after
+    box-sizing content-box
+  &:before
+    content ''
+    position absolute
+    border 2px solid #57f
+    height 100%
+    margin 9.5px 0 
+    margin-left -23px
+    //left 3.75rem
+    left 40%
+    
+  
+  .event
+    margin-bottom 50px
+    overflow hidden
+    .left-content
+      float left
+      width 40%
+      .date
+        margin-right 5.5px
+        padding-right 37.5px // 32 + 5.5
+        //float left
+        margin-top 9px
+        font-weight bold
+        text-align right
+        position relative
+        z-index 1
+        &:before
+          content ''
+          position absolute
+          //left 45.5px
+          right 0
+          top -7px
+          background #fff
+          width 26px
+          height 26px
+          border-radius 50%
+          border 3px solid #57f
+        &:after
+          content ''
+          position absolute
+          //left 53.5px
+          right 8px
+          top 1px
+          background #57f
+          width 16px
+          height 16px
+          border-radius 50%
+    .right-content
+      //margin-left 50px
+      //margin-left 83px
+      //margin-left 43px
+      float right
+      width 60%
+      min-width 150px
+      color primary_text
+      font-weight bold
+      .title
+      .subtitle
+      .range
+        margin 0
+        font-size 1rem
+        font-weight normal
+      .title
+        font-weight bold
+      .subtitle
+      .range
+        font-size .9rem
+        color secondary_text
+
+.dl-horizontal
+  font-size 0
+  & > *
+    font-size 1rem
+    display inline-block
+  dt
+    font-weight bold
+    width 25%
+    text-align right
+    margin-right 5%
+    box-sizing border-box
+  dd
+    box-sizing border-box
+    font-weight normal
+    margin 0
+    width 70%
+
+.wrapper
+  max-width 62.5rem
+  margin 0 auto
+
+
+
+
+.header
+  height 2.5rem
+  position relative
+  background #fff
+  color primary_text
+  box-shadow 0 5px 20px 0px gray
+
+  position fixed
+  top 0
+  left 0
+  right 0
+  z-index 2
+  background-color #fffe
+  //opacity 0.3
+  /*& > *
+    opacity 1*/
+
+  .icon-menu
+    position absolute
+    top 50%
+    left 1.25rem
+    margin-top -.5rem
+    text-decoration none
+    color primary_text
+    
+  .title
+    text-transform uppercase
+    line-height 2.5rem
+    text-align center
+    h1
+      margin 0
+      font-size 1.25rem
+  .menu
+    display none
+    overflow hidden
+    max-width 62.5rem
+    margin 0 auto
+    .logo
+      line-height 3.25rem
+      margin-left 1rem
+      color primary_dark
+    .list
+      float right
+    .item
+      float left
+      a
+        color primary_text
+        padding .75rem 1rem
+        display block
+        border-bottom .5rem solid transparent
+        //width 150px
+        &:hover
+          border-bottom .5rem solid primary
+    .active
+      a
+        border-bottom .5rem solid primary_dark
+        color primary_dark
+  .submenu
+    display none
+
+
+.main
+  max-width 62.5rem
+  margin 0 auto
+
+.banner
+  .image.banner
+    position relative
+    img
+      filter brightness(30%)
+    .content
+      position absolute
+      top 20%
+      left 20%
+      right 20%
+      text-align center
+      .image.avatar
+        width 35%
+        margin 0 auto
+        img
+          width 100%
+          height auto
+          filter brightness(100%)
+      h2
+        color #fff
+        font-size 1.25rem
+        font-weight normal
+      
+.overview
+  margin 2em 1em
+
+//.skills
+  //h3
+    //margin-top 0
+
+
+.skill
+  margin-bottom 2em
+  overflow hidden
+  .left-content
+    float left
+    width 20%
+    padding .5rem
+  .right-content
+    float left
+    width 80%
+    padding .5rem
+  
+  .icon
+    font-size 48px
+  .title
+    color secondary_text
+    margin-bottom .5em
+    display block
+  
+  &.cplusplus
+    .icon
+      color #2196f3
+    .state
+      width 95%
+      background #2196f3
+  &.nodejs
+    .icon
+      color #009688
+    .state
+      width 75%
+      background #009688
+  &.python
+    .icon
+      color #ffeb3b
+    .state
+      width 70%
+      background #ffeb3b
+  &.devos
+    .icon
+      color #f44336
+    .state
+      width 80%
+      background #f44336
+  &.android
+    .icon
+      color #4caf50
+    .state
+      width 80%
+      background #4caf50
+  &.angularjs
+    .icon
+      color #e91e63
+    .state
+      width 60%
+      background #e91e63
+  &.reactjs
+    .icon
+      color #3f51b5
+    .state
+      width 85%
+      background #3f51b5
+  &.docker
+    .icon
+      color #03a9f4
+    .state
+      width 90%
+      background #03a9f4
+  &.git
+    .icon
+      color #9e9e9e
+    .state
+      width 95%
+      background #9e9e9e
+  &.css3
+    .icon
+      color #b71c1c
+    .state
+      width 90%
+      background #b71c1c
+  &.java
+    .icon
+      color #795548
+    .state
+      width 70%
+      background #795548
+  &.csharp
+    .icon
+      color #9c27b0
+    .state
+      width 40%
+      background #9c27b0
+  &.php
+    .icon
+      color #1a237e
+    .state
+      width 86%
+      background #1a237e
+  &.codeigniter
+    .icon
+      color #ff9800
+    .state
+      width 80%
+      background #ff9800
+  &.wordpress
+    .icon
+      color #0d47a1
+    .state
+      width 40%
+      background #0d47a1
+  &.django
+    .icon
+      color #004d40
+    .state
+      width 40%
+      background #004d40
+  &.arduino
+    .icon
+      color #00bcd4
+    .state
+      width 75%
+      background #00bcd4
+  &.processing
+    .icon
+      color #006064
+    .state
+      width 95%
+      background #006064
+  &.mysql
+    .icon
+      color #01579b
+    .state
+      width 89%
+      background #01579b
+  &.postgresql
+    .icon
+      color #6200ea
+    .state
+      width 95%
+      background #6200ea
+  &.mongodb
+    .icon
+      color #1b5e20
+    .state
+      width 70%
+      background #1b5e20
+  &.hypertable
+    .icon
+      color #827717
+    .state
+      width 60%
+      background #827717
+  &.neo4j
+    .icon
+      color #0288d1
+    .state
+      width 85%
+      background #0288d1
+  &.hbase
+    .icon
+      color #512da8
+    .state
+      width 90%
+      background #512da8
+  &.hadoop
+    .icon
+      color #eeff41
+    .state
+      width 80%
+      background #eeff41
+  &.unity
+    .icon
+      color #5c6bc0
+    .state
+      width 35%
+      background #5c6bc0
+
+.footer
+  background primary_dark
+  color solitude
+  .wrapper
+    margin 0 auto
+    overflow hidden
+  .flicker
+  .tags
+  .popular
+    width 33.333%
+    float left
+    padding 1rem
+  .footertop
+    width 100%
+    padding 1rem
+    float left
+    .list
+      float right
+      .item
+        float left
+        a
+          color solitude
+        &:not(:first-child)
+          &:before
+            content '|'
+            margin 0 10px
+
+
+
+// Media Queries
+// SMALL
+@media screen and (min-width: 480px)
+  .dl-horizontal
+    dt
+      width 20%
+    dd
+      width 75%
+  .banner
+  .image.banner
+    h2
+      margin 3rem 0
+// MEDIUM
+@media screen and (min-width: 768px)
+  .skills
+    overflow hidden
+    .skill
+      width 50%
+      padding 1.25rem
+      float left
+  .wrapper
+    margin 1%
+    overflow hidden
+
+    //column-count 2
+    //column-gap 1rem
+    //column-fill auto
+    //break-inside avoid
+    .card
+      margin 1%
+    .experience
+    .education
+    .certificates
+      width 48%
+      //display block
+      //width 100%
+    .experience
+    .education
+      float left
+    .certificates
+      float right
+
+  .header
+    height auto
+    //border none
+    .icon-menu
+    .title
+      display none
+    .menu
+      display block
+
+// LARGE
+@media screen and (min-width: 1024px)
+  .skills
+    .skill
+      width 33.333%
+  

@@ -17,7 +17,7 @@ module.exports = function(server, development) {
     if (development)
         context["development"] = "true"
 
-    Utils.deleteFolderRecursive(context['public_dir'])
+    //Utils.deleteFolderRecursive(context['public_dir'])
     var posts = new Posts(context)
     posts.chargePosts()
     var pages = new Pages(context)

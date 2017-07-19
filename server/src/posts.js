@@ -37,11 +37,12 @@ module.exports = function (context){
             var template = Handlebars.compile(`{{> ${self.context['layout']} }}`)
             var html = template (self.context)
 
-            var permalink = self.context['public_dir'] + '/'
+            var permalink = self.context['public_dir']
             if (!self.context['permalink']) {
                 var date = new Date (self.context['date'])
                 var permalink_format = self.context['permalink_format']
                 var route=permalink_format.split('/')
+                permalink += '/'
                 route.forEach(function(chunk){
                     chunk = chunk.substring(1,chunk.length)
                     if (chunk === "year" && !isNaN( date.getTime() ))
@@ -78,7 +79,7 @@ module.exports = function (context){
                         console.error(`POST: In post ${file_name}, can't save post`)
                         return
                     }
-                    console.log("The file was saved!");
+                    console.log(`POST: ${file_name} was saved`)
                 }); 
             });
 

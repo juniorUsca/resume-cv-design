@@ -37,13 +37,13 @@ module.exports = function (context) {
             var template = Handlebars.compile(`{{> ${self.context['layout']} }}`)
             var html = template (self.context)
             
-            var permalink = self.context['public_dir'] + '/'
+            var permalink = self.context['public_dir']
             if (!self.context['permalink']) {
                 var title = self.context['title']
                     .toLowerCase()
                     .replace(/[^\w ]+/g,'')
                     .replace(/ +/g,'-')
-                permalink += title + '/'
+                permalink += '/' + title + '/'
             } else
                 permalink += self.context['permalink']
             
@@ -58,7 +58,7 @@ module.exports = function (context) {
                         console.error(`PAGE: In page ${file_name}, can't save page`)
                         return
                     }
-                    console.log("The PAGE was saved!");
+                    console.log(`PAGE: ${file_name} was saved`)
                 }); 
             });
 

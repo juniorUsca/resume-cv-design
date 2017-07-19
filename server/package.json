@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build && gulp default",
-    "watch": "gulp watch"
+    "build": "gulp _build && gulp _compress",
+    "watch": "gulp _build && gulp _compress && gulp watch"
   },
   "repository": {
     "type": "git",
@@ -26,13 +26,13 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-minify-html": "^1.0.6",
     "gulp-strip-debug": "^1.1.0",
+    "gulp-stylus": "^2.6.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "handlebars": "^4.0.10",
     "js-yaml": "^3.9.0",
     "marked": "^0.3.6",
-    "nib": "^1.1.2",
-    "stylus": "^0.54.5"
+    "nib": "^1.1.2"
   },
   "dependencies": {
     "ncp": "^2.0.0",

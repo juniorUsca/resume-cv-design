@@ -11,4 +11,7 @@ Because NODE can interprate the code of files.
 ```
 docker build -t juscah/resume .
 docker run --rm -ti -v resume-cv:/data juscah/resume sh
+
+npm run build
+npm run watch
 ```
